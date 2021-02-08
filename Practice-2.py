@@ -53,22 +53,68 @@ class Fraction():
     def __init__(self,nr,dr=1):
         self.nr = nr
         self.dr = dr
+        if self.dr<0:
+            self.nr*=-1
+            self.dr*=-1
+    def show(self):
+        print(f'{self.nr}/{self.dr}')
+    def multiply(self,other):
+        if isinstance(other,int):
+            other = Fraction(other)
+        return Fraction(self.nr*other.nr,self.dr*other.dr)
+    def add(self,other):
+        if isinstance(other,int):
+            other = Fraction(other)
+        return Fraction(self.nr * other.dr + self.dr * other.nr,self.dr*other.dr)
+        
+class Product():
+    def __init__(self, id, marked_price, discount):
+        self.id = id
+        self.marked_price = marked_price
+        self.discount = discount
+    
+    def display(self):
+        print(self.id,  self.marked_price,  self.discount)
+        
+    @property
+    def selling_price(self):
+        
+    
+p1 = Product('X879', 400, 6)
+p2 = Product('A234', 100, 5)
+p3 = Product('B987', 990, 4)
+p4 = Product('H456', 800, 6)
+
+
+# f1 = Fraction(2,3)
+# f1.show()
+# f2 = Fraction(3,4)
+# f2.show()
+# f3 = f1.multiply(f2)
+# f3.show()
+# f3 = f1.add(f2)
+# f3.show()
+# f3 = f1.add(5) 
+# f3.show()
+# f3 = f1.multiply(5) 
+# f3.show()
+         
        
 
 
-book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,0)
-book2 = Book('652-6-86-748413-3', 'Learn Chemistry','Jack', 'CBC', 400, 220,20)
-book3 = Book('957-7-39-347216-2', 'Learn Maths','John', 'XYZ', 500, 300,5)
-book4 = Book('957-7-39-347216-2', 'Learn Biology','Jack', 'XYZ', 400, 200,6)
+# book1 = Book('957-4-36-547417-1', 'Learn Physics','Stephen', 'CBC', 350, 200,0)
+# book2 = Book('652-6-86-748413-3', 'Learn Chemistry','Jack', 'CBC', 400, 220,20)
+# book3 = Book('957-7-39-347216-2', 'Learn Maths','John', 'XYZ', 500, 300,5)
+# book4 = Book('957-7-39-347216-2', 'Learn Biology','Jack', 'XYZ', 400, 200,6)
 
-# print(f'The number of books are {book1.copies}')
-# book1.sell()
-# print(f'The number of books after sell are {book1.copies}')
+# # print(f'The number of books are {book1.copies}')
+# # book1.sell()
+# # print(f'The number of books after sell are {book1.copies}')
 
-# Answering the question 4
+# # Answering the question 4
 
-books = [book1,book2,book3,book4]
+# books = [book1,book2,book3,book4]
 
-# print([books[i].display() for i in range(len(books))])
-titles = [book.title for book in books if book.author=='Jack']
-print(titles)
+# # print([books[i].display() for i in range(len(books))])
+# titles = [book.title for book in books if book.author=='Jack']
+# print(titles)
